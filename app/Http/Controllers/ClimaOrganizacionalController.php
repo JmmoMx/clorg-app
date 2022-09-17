@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
-use App\models\preguntas;
+use App\Models\preguntas;
 use App\Models\userRespuestas;
 use App\Models\userResPreg;
 use Illuminate\Support\Facades\DB;
@@ -21,17 +21,17 @@ class ClimaOrganizacionalController extends Controller
 
     public function index()
     {
-        $area = \App\models\area::where('edo',1)->get();
-        $areaSec = \App\models\area::where('edo',1)->get();
-        $subArea = \App\models\subAreas::where('edo',1)->get();
-        $subAreaSec = \App\models\subAreas::where('edo',1)->get();
-        $categoriaPersonal = \App\models\categoriaPersonal::where('edo',1)->get();
-        $categoriaPersonalSec = \App\models\categoriaPersonal::where('edo',1)->get();
-        $discapacidades = \App\models\discapacidades::where('edo',1)->get();
+        $area = \App\Models\area::where('edo',1)->get();
+        $areaSec = \App\Models\area::where('edo',1)->get();
+        $subArea = \App\Models\subareas::where('edo',1)->get();
+        $subAreaSec = \App\Models\subareas::where('edo',1)->get();
+        $categoriaPersonal = \App\Models\categoriaPersonal::where('edo',1)->get();
+        $categoriaPersonalSec = \App\Models\categoriaPersonal::where('edo',1)->get();
+        $discapacidades = \App\Models\discapacidades::where('edo',1)->get();
 
-        $genero = \App\models\generos::where('edo',1)->get();
-        $grupoEdad = \App\models\rangoEdad::where('edo',1)->get();
-        $anosServ = \App\models\anosServicio::where('edo',1)->get();
+        $genero = \App\Models\generos::where('edo',1)->get();
+        $grupoEdad = \App\Models\rangoEdad::where('edo',1)->get();
+        $anosServ = \App\Models\anosServicio::where('edo',1)->get();
 
         // dd($preguntasd);
 
@@ -107,7 +107,7 @@ class ClimaOrganizacionalController extends Controller
     {
         $director = $request['find'];
         $info= array();
-        $info['subArea'] = \App\models\subAreas::where('edo',1)->where('areas_id', $director)->get();
+        $info['subArea'] = \App\Models\subareas::where('edo',1)->where('areas_id', $director)->get();
 
         for($i = 0; $i < count($info['subArea']); $i++) {
             $info['subArea'][$i]->clave = number_format($info['subArea'][$i]->clave, 1);
@@ -120,7 +120,7 @@ class ClimaOrganizacionalController extends Controller
     {
         $director = $id;
         $info= array();
-        $info['subArea'] = \App\models\subAreas::where('edo',1)->where('areas_id', $director)->get();
+        $info['subArea'] = \App\Models\subareas::where('edo',1)->where('areas_id', $director)->get();
 
         for($i = 0; $i < count($info['subArea']); $i++) {
             $info['subArea'][$i]->clave = number_format($info['subArea'][$i]->clave, 1);
