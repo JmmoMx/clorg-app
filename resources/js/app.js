@@ -164,8 +164,6 @@ var Answer = []
     document.getElementById("porqueno").onclick = function() {sigPreg()};
 
     function sigPreg() {
-
-        console.log('indice: ' + indice)
         
         if(indice < AllQue.length){
             let siempre = document.getElementById("horizontal-list-radio-siempre").checked
@@ -221,8 +219,6 @@ var Answer = []
          },
         success:function(response)
         {
-            console.log('Resouesta:')
-            console.log(response)
             document.location.href = '/gracias'
         },
         error: function(jqXHR, textStatus) {
